@@ -83,7 +83,8 @@ class Typed(Core):
                 name = "@" + name[1:]
             content.type = self.resolver.find(name, content.value)
             if content.type is None:
-                raise TypeNotFound(content.tag)
+                return False
+                # raise TypeNotFound(content.tag)
         else:
             known = None
             if isinstance(content.value, Object):
